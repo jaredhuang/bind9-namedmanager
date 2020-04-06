@@ -1,10 +1,7 @@
 FROM php:5.6-apache-stretch
 
-LABEL maintainer="andrey.mikhalchuk@conceptant.com"
-LABEL version="0.0.1.2"
-LABEL description="This Dockerfile builds BIND9 with namemanager web UI"
-LABEL "com.conceptant.vendor"="Conceptant, Inc."
-
+RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &&\
+    echo 'Asia/Shanghai' >/etc/timezone
 ENV MYSQL_NM_PASSWORD "n9p7zD7DC3Xn2BQg"
 
 ENV NM_API_URL "http://localhost:8090"
